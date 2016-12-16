@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<html>
+<Head><title>Home page</title>
+<style type="text/css">
+body {
+	background: #d85570, no-repeat;
+	background: -webkit-linear-gradient(left,#106CAC,black);
+	background: -moz-linear-gradient(left,#106CAC,black);
+/*	background: -moz-linear-gradient(left, #106CAC,black);*/ /* For Firefox 3.6 to 15 */
+	background: -o-linear-gradient(left,#106CAC,black); /* For Opera 11.1 to 12.0 */ 
+	background: linear-gradient(left,#106CAC,black); /*Standard syntax */
+	background: linear-gradient(left, #106CAC,black); /* IE ? */
+	background: -ms-linear-gradient(left, #106CAC, black); /* IE 11 */
+	/*background-repeat: repeat;*/
+	/*background-position: center;*/
+	font-family: Verdana;
+	font-size: .95em;
+	color:White;
+	margin-left: 100px;
+	margin-right: 200px;
+}
+a:link {color: White;}
+a:active {color: White;}
+a:Visited {color: White;}
+
+</style>
+</head>
+
+<body>
+<div align="center" style="font-family: Verdana; font-size: 2em;">
+Patient Registration and Template Utility Help</div>
+<div align="center" style="font-family: Verdana; font-Size: .8em;"> brought to you by </div>
+<table align="center">
+	<tr>
+		<td>     </td>
+		<td><a href="http://www.worldvista.org"><img src="WVLogo11172013_50perc.gif" alt="" /></a></td>
+		<td>     </td>
+		<td><a href="http://www.hardhats.org/fileman/pm/"><img src="Filemanager Logo_scaled down.png" height=60 width=60 alt="By George Timson" /></a></td>
+		<td>     </td>
+		<td><a href="http://www.d00a.com/"><img src="BFproductions012511_125perc.gif" height=55 width=60 alt="BellFelder Prod. LLC"></a></td>
+		<td>     </td>
+	</tr>
+</table>
+
+
+<table align="center" style="border: 1; border-spacing: 10px;">
+	<tr>
+		<td><a href="#Technical">Technical</a></td>
+		<td><a href="#Installation">Installation</a></td>
+	</tr>
+</table>
+</div>
+<p>
+The original intent of this product was to be able to simply add a new case to the main database, the Patient file. Through time and one forced programmer "hiatus", it has grown to its current configuration. This, more importantly, is untested code, and might even be considered "Alpha-sub-Alpha" level. Development was on win7-10, using a VMWare host, Delphi2006, version dEWDrop5, which includes the WorldVistA EHR (commonly called CPRS), in Fileman. 
+</p> 
+<A NAME=Technical></A><b>Technical:</b>
+<table border width="100%" cols=2 style="border: 1px solid white; border-spacing: 2px; cellspacing: 2px;">
+ <tr style="text-align: left;">
+  <td>Author</td>
+  <td><a href="mailto:jbellco65@gmail.com">Jim Bell</a> (BellFelder Prod., LLC), et al, volunteer with WorldVistA.</td>
+ </tr>
+ <tr>
+  <td>Environment</td>
+  <td>Linux (Dist. of choice)</td>
+ </tr>
+ <tr>
+  <td>Operating System</td>
+  <td>GT.m</td>
+ </tr>
+ <tr>
+  <td>Language</td>
+  <td>M</td>
+ </tr>
+ <tr>
+  <td>Database & Manager</td>
+  <td>Fileman 22.0</td>
+ </tr>
+ <tr>
+  <td>EHR Content</td>
+  <td>FOIA VistA, from WorldVistA</td>
+ </tr>
+ <tr>
+  <td>Incoming files</td>
+  <td><li>64850001 PATIENT FILE FIELD EXCLUSIONS: These are fields in the patient file that the author (ahem - me...) considers to be VA pertinent. Most of the fields are computed and/or triggered by other fields for specific VA tracking/reporting requirements, and in my opinion, are not very meaningful or pertinent to civilian use.</li>
+<li>64850002 CIVILIAN PATIENT FIELDS: Fields selected by the author that are considered to be non-VA mandates.
+</li>
+<li>64850003 FIELD GROUPS: Fields, on build or File structure editing, can have an optional ID to group them by category(s). This is a list of field groups I, and others, consider valid.</li><li><b>NOTE:</b><i> These 3 files will be filed in the DIZ global and all 3 are editable for local need.</i></li>
+<li>64850004 VERBOTEN TEMPLATES: These templates are VA specific templates and contain navigation jumps
+in the template lines for a "roll 'n scroll" environment. They are 1) fields not likely used in
+civilian work, and 2) GUIs do not need these kind of jumps. The templates also cause a communication
+error in that templates asking for a read response (e.g., YES or NO) causes a fatal error in the
+VA Broker.</li>
+ </tr>
+ <tr>
+  <td>Application Routine Set </td>
+  <td><li>VWREGIT</li><li>VWREGITP</li><li>VWREGITS</li><li>VWREGITT</li><li>VWREGITU</li><li>VWREGITX</li><li>VWREGIT2</li><li>VWREGIT3</li></td>
+ </tr>
+ <tr>
+  <td>Remote Procedure Calls</td>
+  <td><LI>VW REG AHF->AHF^VWREGITX: "ad hoc" field selection and retrieval</li>
+      <LI>VW REG ALIST->ALIST^VWREGITX: Returns alpha list via Patient Select</li>
+      <LI>VW REG EGF->EGF^VWREGITT: Returns fields for selected template
+      <LI>VW REG FGNA->FGNA^VWREGITX: Sort sub-routine for Temp. man. client</li>
+      <LI>VW REG FLD BY GRP->LF^VWREGITX: Returns fields via group ID for "ad hoc"</li>
+      <LI>VW REG GPD->GPD^VWREGITP: Returns patient data</li>
+      <LI>VW REG GPDM->GPDM^VWREGITP: Returns multiple data on a patient</li>
+      <LI>VW REG GRP LIST->RETGRP^VWREGITX: List of group id for fields for "ad hoc"</li>
+      <LI>VW REG MAIN->EN^VWREGIT: First call and set up for the application</li>
+      <LI>VW REG MF->M^VWREGITU: Displays Multiple Field Input form.</li>
+      <LI>VW REG MISC->MISC^VWREGITU: Get simple value from VWDD ID
+      <LI>VW REG NEW PT^^^NPT^VWREGIT: Returns template fields and [optional] patient info</li>
+      <LI>VW REG PF->PF^VWREGIT: Returns data from reference files (e.g., STATE(#5), etc)</li>
+      <LI>VW REG RTF->RTF^VWREGITT: Send a refresh of regit.txt to client
+      <LI>VW REG SAVE->SAVE^VWREGITS: Saves input sent by the client/user</li>
+      <LI>VW REG TEMPLATE->EN^VWREGITT: Template management</li>
+      <LI>VW REG ZIP->ZPC^VWREGITU: Returns zip/postal code data(e.g., city, county, state, etc)</li>
+  </td>
+ </tr>
+ <tr>
+  <td>Menu Options</td>
+  <td><li>VW REG IT CONTROL: Manager level application management</li><li>VW PATIENT REGISTRATION</li></td>
+ </tr>
+ <tr>
+  <td>Incoming Parameters</td>
+  <td><li>VW GUI REG TEMPLATE DIRECTORY-Host Home Directory</li><li>VW REG DEFAULT STATE-DEFAULT HOME           STATE</li><li>VW REG RDNPT-DEFAULT NEW PT TEMPLATE</li>
+  </td>
+ </tr>
+ <tr>
+  <td>Zip File</td>
+  <td><li>VWREG.KID</li>
+      <li>vwreg_postinstall.sh</li>
+      <li>VWREG Folder</li>
+      <li>BFP_Proj1.exe; GUI application</li>
+  </td>
+ </tr>
+</table>
+
+<br><div align="right"><a href="#TOP">Top</a></div><br>
+
+<A NAME=Installation></A><B>Installation:</b><br>
+<p align="left">
+<table border width="100%" cols=2 style="border: 1px solid white; border-spacing: 2px; cellspacing: 2px;">
+ <tr>
+  <td align="right">Step&nbsp1</td>
+  <td>Make a folder and place on your C drive. The folder should be named VWREG (c:\VWREG)</td>
+ </tr>
+ <tr>
+  <td align="right">Step 2</td>
+  <td>Unzip the zip and place all the contents in your new c:\VWREG folder</td>
+ </tr>
+ <tr>
+  <td align="right">Step 3</td>
+  <td>
+  &nbsp&nbsp&nbsp&nbsp&nbsp0. Transfer the .KID file to your *preferred or *working directory<br>
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp(and for safety-sake make a copy of the .KID in your dowload/or<br>
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp other preferred directory)<br>
+  &nbsp&nbsp&nbsp&nbsp&nbsp1. chmod 777 [current VWREG KID].KID
+  &nbsp&nbsp&nbsp&nbsp&nbsp2. Run dos2unix on the .KID file<br>
+  &nbsp&nbsp&nbsp&nbsp&nbsp3. mkdir regparam**<br>
+  &nbsp&nbsp&nbsp&nbsp&nbsp4. From this directory go to GTM<br>
+  &nbsp&nbsp&nbsp&nbsp&nbsp5. Do the install procedures through EVE->Programmer Options->KIDS<br>
+  &nbsp&nbsp&nbsp&nbsp&nbsp*<i> The KIDS installation and M application will use this directory as your home directory</i><br>
+  &nbsp&nbsp&nbsp&nbsp&nbsp**<i>This directory in your home directory is where the GUI gets its lists<br>
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp of template names from the file regit.txt. It can be manually edited. Note that the<br>
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp template name consists of the NAME(INTERNAL RECORD NUMBER).</i><br>
+  <b><i>NOTE</b></i>: If you are doing a second install over the first
+  You may have to re-enter your parameter data (see the "Editing Parameters Example" below)
+  </td>
+ </tr>
+ <tr>
+  <td align="right">Step 4</td>
+  <td>Create a shortcut to the .exe file</td>
+ </tr>
+ <tr>
+  <td align="right">Step 5</td>
+  <td>Place the shortcut in the c:\Users\Public folder (Example: c:\Users\Public\BFP_Proj1.exe)</td>
+ </tr>
+ <tr>
+  <td align="right">Step 6</td>
+  <td>Edit your shortcut properties to add your server IP and port No.<br>
+      Example:"C:\Users\Public\BFP_Proj1.exe" S=192.168.254.149 P=9430
+  </td>
+ <tr>
+  <td align="right">Step 7</td>
+  <td>There is a backup to the short-cut IP and Port. It is the c:\VWREG\connect.txt file. The application will first
+      look for the shortcut, and, if not found, will then look for the c:\VWREG\connect.txt file.
+      Enter your IP and Port. Line 1 is the IP and line 2 is the port. Example:<br>192.168.254.149<br>9430</td>
+ </tr>
+ </tr>
+ <tr>
+  <td>Installation Example</td>
+  <td>c:\VWREG\VWREG_Install.rtf</td>
+ </tr>
+ <tr>
+  <td>Editing Parameters Example</td>
+  <td>c:\VWREG\VWREG_ParameterExample.rtf</td>
+ </tr>
+
+</table>
+<br>
+<div align="right"><a href="#TOP">Top</a></div>
+
+<br>
+</body>
+
+</html>
