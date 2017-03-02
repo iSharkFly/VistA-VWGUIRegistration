@@ -98,6 +98,7 @@ NPT(RESULT,TNAME)	;
 	K RESULT S (FNUM,FCAP)=""
 	F I=1:1:$L(FIELDS,";")-1 D
 	. S F=$P(FIELDS,";",I)
+	. Q:'$D(^DD(2,F))  ;Not existing in this patient file
 	. I F["~" S FNUM=+F,FNAME=$P($P(F,"~"),FNUM,2),F=FNUM K FNUM
 	. S FNAME=$S($L($G(FNAME)):FNAME,$L($G(^DD(2,F,.1))):$P(^(.1),"^"),1:$P(^DD(2,F,0),"^"))
 	. S FVALUE=""  ;Patient Data
