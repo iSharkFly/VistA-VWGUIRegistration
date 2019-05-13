@@ -1,6 +1,5 @@
 VWREGITS	;Portland,OR/jeb et al Save utility for VWREG* routines 11/2015
-	;V.2;;**LOCAL**;;;Build 2
-	;c2014 ad infiniti, BellFelder Productions (BF Productions) & WorldVistA
+	;V.2;;**LOCAL**;;;Build 3
 	;License: See License.txt that with install
 	;No fall thru - jeb
 	Q
@@ -65,7 +64,7 @@ LDPT	L +^DPT(DFN):1 G LDPT:'$T
 	L -^DPT(DFN)
 	D M  ;File any multiple fields
 	S RESULT(0)="Filed..."
-	K ^DIZ("DS",$J)
+	;K ^DIZ("DS",$J)
 	Q
 	;
 EXP	;Existing Patient

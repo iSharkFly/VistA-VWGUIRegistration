@@ -1,5 +1,5 @@
-VWREGITT	;Portland\Jim Bell, BFP,LLC Input Template Management 2016
-	;2.0**LOCAL** Copyright April 2016 ad infinitum;;;;;Build 1
+VWREGITT	;Portland\Jim Bell,  Input Template Management 2016
+	;2.0**LOCAL** Copyright April 2016 ad infinitum;;;;;Build 4
 	;*****************************************************************
 	;* Licensed under GNU 2.0 or greater - see license.txt file      *
 	;* Program/application is for the management of input templates  *

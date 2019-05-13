@@ -1,6 +1,12 @@
 VWREGITU	;Portland, OR/jeb et al World Vista Registration Utilities
-	;V.2;;**LOCAL**;; 2015;Build 2
-	;;c2014, BellFelder Productions(BF Productions)
+	;2.0;;**LOCAL**;;2015;Build 4;;c2014
+	;*****************************************************************
+	;* Licensed under GNU 2.0 or greater - see license.txt file      *
+	;* Program/application is for the management of input templates  *
+	;* owned by the user (DUZ).				         *
+	;* REMINDER: All template fields pertain only to the Patient File*
+	;*  (#2)!							 *
+	;*****************************************************************
 	;No Fall thru - jeb
 	Q
 	;

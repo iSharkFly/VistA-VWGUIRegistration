@@ -1,10 +1,13 @@
-VWREGITP	;BFP/Portland,OR-Jim Bell,et al - Client Registration Utility
-	       ;2.0;BFP for WorldVistA;**LOCAL**;;;Build 2
-	; *******************************************
-	; * Copyright 2015 ad infinitum et ultra    *
-	; * Gets data for existing clients/patients *
-	; * GPL License: See License.txt            *
-	; *******************************************
+VWREGITP	;Portland,OR/Jim Bell,et al - Client Registration Utility
+	;2.0;For WorldVistA;**LOCAL**;;;Build 4; Copyright 2015 ad infinitum et ultra    *
+	;Gets data for existing clients/patients
+	;*****************************************************************
+	;* Licensed under GNU 2.0 or greater - see license.txt file      *
+	;* Program/application is for the management of input templates  *
+	;* owned by the user (DUZ).				         *
+	;* REMINDER: All template fields pertain only to the Patient File*
+	;*  (#2)!							 *
+	;*****************************************************************
 	Q  ;No fall through - jeb
 	;
 GPD(RESULT,DATA)	;Get patient data

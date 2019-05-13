@@ -1,5 +1,12 @@
-VWREGIT2	;Portland/WorldVista/BFP,LLC/Jim Bell, et al... - Post-Install for VWREG	
-	;;1.0;WORLD VISTA;**HOME **;;Build 2
+VWREGIT2	;Portland/WorldVista//Jim Bell, et al... - Post-Install for VWREG	
+	;;2.0;WORLD VISTA;**HOME **;;Build 4
+	;*****************************************************************
+	;* Licensed under GNU 2.0 or greater - see license.txt file      *
+	;* Program/application is for the management of input templates  *
+	;* owned by the user (DUZ).				         *
+	;* REMINDER: All template fields pertain only to the Patient File*
+	;*  (#2)!							 *
+	;*****************************************************************
 	;
 	;Continued from VWREGIT
 	;
@@ -15,7 +22,8 @@ PRE	;Did this installation happen already? Avoid a re-do?
 	;
 PI	;Post Installation install
 	;Checking for a home directory & file
-	I $O(^XMB(3.8,"B","VW REG ERROR REPORT",0)) W !?5,"Installation has already occurred" Q
+	;I $O(^XMB(3.8,"B","VW REG ERROR REPORT",0)) W !?5,"Installation has already occurred" Q
+	D PRE
 	S AR=1,AR(1)="[TEMPLATES]"
 	S N=0 F  S N=$O(^DIE(N)) Q:'+N  S X=$P(^(N,0),"^") D
 	. I X["VW " S AR($I(AR))=X_"("_N_")"

@@ -1,5 +1,5 @@
 VWREGIT	;Portland,OR/Jim Bell, et al Patient Registration Utility August 2015
-	;;2.0;B/FProductions,LLC,WORLD VISTA;**LOCAL**;;Build 2
+	;;2.0;WORLD VISTA;**LOCAL**;;Build 2
 	;*******************************************************************
 	;* VW Registration is designed for patient specific fields as      *
 	;* defined in Fileman Input Templates or ad hoc field selection.   *
@@ -32,6 +32,7 @@ CHECK()	;
 INR()	Q $O(RESULT(" "),-1)+1
 	;
 EN(RESULT)	   ;Template name and ID labels
+	;W "
 	;Get the input template list
 	;housekeeping
 	S DTIME=99999
